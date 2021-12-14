@@ -1,10 +1,10 @@
 import React from "react";
 import AceEditor from "react-ace";
 
+import Paper from "@mui/material/Paper";
+
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
-
-import classes from './Editor.module.css'
 
 function onChange(newValue) {
   console.log("change", newValue);
@@ -13,14 +13,16 @@ function onChange(newValue) {
 // Render editor
 const Editor = () => {
   return (
-    <AceEditor
-      mode="java"
-      theme="github"
-      className={classes.aceEditor}
-      onChange={onChange}
-      name="UNIQUE_ID_OF_DIV"
-      editorProps={{ $blockScrolling: true }}
-    />
+    <Paper elevation={3} >
+      <AceEditor
+        mode="java"
+        theme="github"
+        onChange={onChange}
+        name="UNIQUE_ID_OF_DIV"
+        editorProps={{ $blockScrolling: true }}
+        style={{ width: "100%" }}
+      />
+    </Paper>
   );
 };
 
