@@ -41,7 +41,7 @@ function App() {
         </Grid>
 
         {/* Output */}
-        <Grid item xs={12} style={{ padding: "15px" }}>
+        <Grid item xs={12} style={{ padding: "5px 15px" }}>
           <Output
             output={
               "Lorem Ipsum is simply dummy text of the printing and typesetting industry."

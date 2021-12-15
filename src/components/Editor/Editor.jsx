@@ -3,8 +3,9 @@ import AceEditor from "react-ace";
 
 import Paper from "@mui/material/Paper";
 
-import "ace-builds/src-noconflict/mode-java";
-import "ace-builds/src-noconflict/theme-github";
+import Beautify from "ace-builds/src-noconflict/ext-beautify";
+import "ace-builds/src-min-noconflict/ext-language_tools"
+import './acebuilds'
 
 function onChange(newValue) {
   console.log("change", newValue);
@@ -15,12 +16,24 @@ const Editor = () => {
   return (
     <Paper elevation={3} >
       <AceEditor
-        mode="java"
-        theme="github"
+        mode="python"
+        theme="dracula"
         onChange={onChange}
-        name="UNIQUE_ID_OF_DIV"
+        commands={Beautify.commands}
+        name="ace-editor"
         editorProps={{ $blockScrolling: true }}
         style={{ width: "100%" }}
+        setOptions={{
+          enableBasicAutocompletion: true,
+          enableLiveAutocompletion: true,
+          enableSnippets: true,
+          showLineNumbers: true,
+          highlightActiveLine: true,
+          showGutter: true,
+          autoScrollEditorIntoView: true,
+          showPrintMargin: false,
+          fontSize: "17px",
+        }}
       />
     </Paper>
   );
