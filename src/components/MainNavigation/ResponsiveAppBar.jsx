@@ -16,7 +16,7 @@ const ResponsiveAppBar = (props) => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -29,7 +29,7 @@ const ResponsiveAppBar = (props) => {
               <ArrowForwardIosIcon />
             </IconButton>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
             <IconButton
               href="https://github.com/luckych8080/Online_IDE" target="_blank" rel="noopener noreferrer"
               aria-label="github"
@@ -41,7 +41,7 @@ const ResponsiveAppBar = (props) => {
             </IconButton>
           </Box>
           <Box sx={{ flexGrow: 0, m: 1 }}>
-            <SelectLabels setMode={props.setMode} setLang={props.setLang} />
+            <SelectLabels  setMode={props.setMode} setLang={props.setLang} />
           </Box>
         </Toolbar>
       </Container>

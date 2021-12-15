@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Editor from "./components/Editor/Editor";
 import Output from "./components/Output/Output";
-import Input from "./components/Input/Input";
 import ResponsiveAppBar from "./components/MainNavigation/ResponsiveAppBar";
-import RunButton from "./components/RunButton/RunButton";
+import Input from "./components/Input/Input";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Container, Grid } from "@mui/material";
@@ -17,11 +16,20 @@ const theme = createTheme({
 function App() {
   const [mode, setMode] = useState("dracula");
   const [lang, setLang] = useState("python");
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
+  const [code, setCode] = useState("");
+
+  const onClickHandler = useCallback(() => {
+    // api send data InputRef
+    console.log(input);
+    console.log(code);
+  }, [input, code]);
 
   return (
     <ThemeProvider theme={theme}>
       <ResponsiveAppBar setMode={setMode} setLang={setLang} />
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" style={{ marginBottom: "10px" }}>
         <Grid
           container
           direction="row"
@@ -30,28 +38,15 @@ function App() {
         >
           {/* Editor */}
           <Grid item xs={12} style={{ padding: "15px 0" }}>
-            <Editor mode={mode} lang={lang} />
+            <Editor mode={mode} lang={lang} setCode={setCode} />
           </Grid>
 
           {/* Input & Run button */}
-          <Grid item xs={12}>
-            <Grid container direction="row" spacing={1} alignItems="center">
-              <Grid container alignItems="center" item xs={12} sm={2}>
-                <RunButton />
-              </Grid>
-              <Grid item xs={12} sm={10}>
-                <Input input={""} />
-              </Grid>
-            </Grid>
-          </Grid>
+          <Input onClick={onClickHandler} forewardedRef={setInput} />
 
           {/* Output */}
           <Grid item xs={12}>
-            <Output
-              output={
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-              }
-            />
+            <Output output={output} />
           </Grid>
         </Grid>
       </Container>

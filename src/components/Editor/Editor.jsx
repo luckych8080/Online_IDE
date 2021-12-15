@@ -6,18 +6,18 @@ import Paper from "@mui/material/Paper";
 import Beautify from "ace-builds/src-noconflict/ext-beautify";
 import "ace-builds/src-min-noconflict/ext-language_tools";
 import "./acebuilds";
-
-function onChange(newValue) {
-  console.log("change", newValue);
-}
-
-
+import { useState } from "react";
 
 // Render editor
 const Editor = (props) => {
-  return (
+  const [code, setCode] = useState("");
 
-    
+  const onChange = (value) => {
+    setCode(value);
+    props.setCode(code);
+  };
+
+  return (
     <Paper elevation={3}>
       <AceEditor
         mode={props.lang}

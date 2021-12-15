@@ -22,7 +22,7 @@ export default function SelectLabels(props) {
   }, [theme, lang, props]);
 
   return (
-    <div>
+    <React.Fragment>
       {/* Language */}
       <FormControl sx={{ m: 1, minWidth: 100 }}>
         <InputLabel id="demo-simple-select-helper-label">Lang </InputLabel>
@@ -44,8 +44,8 @@ export default function SelectLabels(props) {
       </FormControl>
 
       {/* Theme */}
-      <FormControl sx={{ m: 1, minWidth: 100 }}>
-        <InputLabel id="demo-simple-select-helper-label">Mode </InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 100, maxWidth: 120 }}>
+        <InputLabel id="demo-simple-select-helper-label">Theme</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
@@ -61,10 +61,10 @@ export default function SelectLabels(props) {
           <MenuItem value={"cobalt"}>Cobalt</MenuItem>
           <MenuItem value={"solarized_light"}>Solarized Light</MenuItem>
           <MenuItem value={"solarized_dark"}>Solarized Dark</MenuItem>
-          <MenuItem value={"gob"}>Green on black</MenuItem>
+          <MenuItem value={"gob"}>GOB</MenuItem>
           <MenuItem value={"terminal"}>Terminal</MenuItem>
         </Select>
       </FormControl>
-    </div>
+    </React.Fragment>
   );
 }
