@@ -4,20 +4,20 @@ import AceEditor from "react-ace";
 import Paper from "@mui/material/Paper";
 
 import Beautify from "ace-builds/src-noconflict/ext-beautify";
-import "ace-builds/src-min-noconflict/ext-language_tools"
-import './acebuilds'
+import "ace-builds/src-min-noconflict/ext-language_tools";
+import "./acebuilds";
 
 function onChange(newValue) {
   console.log("change", newValue);
 }
 
 // Render editor
-const Editor = () => {
+const Editor = (props) => {
   return (
-    <Paper elevation={3} >
+    <Paper elevation={3}>
       <AceEditor
         mode="python"
-        theme="dracula"
+        theme={props.mode}
         onChange={onChange}
         commands={Beautify.commands}
         name="ace-editor"

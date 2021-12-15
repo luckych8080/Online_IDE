@@ -11,7 +11,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import SelectLabels from "../Dropdown/SelectLabels";
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = (props) => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -38,7 +38,7 @@ const ResponsiveAppBar = () => {
             </IconButton>
           </Box>
           <Box sx={{ flexGrow: 0, m:1 }}>
-            <SelectLabels />
+            <SelectLabels setMode={props.setMode}  />
           </Box>
         </Toolbar>
       </Container>
