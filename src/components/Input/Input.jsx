@@ -7,7 +7,9 @@ const Input = (props) => {
       <TextareaAutosize
         aria-label="minimum height"
         minRows={3}
-        style={{ width: "99%", maxHeight: "100%" }}
+        style={{ width: "99%", maxHeight: "100%" , 'fontSize': '17px',
+         'backgroundColor': '#121212', 'color': 'white', 'borderRadius': "5px", 'marginTop': '3px'
+         }}
       ></TextareaAutosize>
     </div>
   );

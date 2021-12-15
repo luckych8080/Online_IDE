@@ -7,6 +7,7 @@ const RunButton = () => {
       variant="contained"
       startIcon={<PlayArrowIcon />}
       color="success"
+      size="large"
       style={{ margin: "auto" }}
     >
       Run

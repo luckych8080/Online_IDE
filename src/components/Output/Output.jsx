@@ -6,7 +6,7 @@ const Output = (props) => {
     <Fragment>
       <b>Output</b>
       <Paper elevation={3}>
-        <div style={{ "minHeight": "20vh" }}>
+        <div style={{ "minHeight": "20vh", 'padding':'0 5px'}}>
           <p>{props.output}</p>
         </div>
       </Paper>
