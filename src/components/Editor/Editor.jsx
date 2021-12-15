@@ -11,12 +11,16 @@ function onChange(newValue) {
   console.log("change", newValue);
 }
 
+
+
 // Render editor
 const Editor = (props) => {
   return (
+
+    
     <Paper elevation={3}>
       <AceEditor
-        mode="python"
+        mode={props.lang}
         theme={props.mode}
         onChange={onChange}
         commands={Beautify.commands}

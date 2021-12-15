@@ -30,15 +30,18 @@ const ResponsiveAppBar = (props) => {
             </IconButton>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <IconButton aria-label="github">
+            <IconButton
+              href="https://github.com/luckych8080/Online_IDE" target="_blank" rel="noopener noreferrer"
+              aria-label="github"
+            >
               <GitHubIcon sx={{ fontSize: 35 }} />
             </IconButton>
-            <IconButton aria-label="linkedin">
+            <IconButton href="https://www.linkedin.com/in/luckych8080/" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
               <LinkedInIcon sx={{ fontSize: 35 }} />
             </IconButton>
           </Box>
-          <Box sx={{ flexGrow: 0, m:1 }}>
-            <SelectLabels setMode={props.setMode}  />
+          <Box sx={{ flexGrow: 0, m: 1 }}>
+            <SelectLabels setMode={props.setMode} setLang={props.setLang} />
           </Box>
         </Toolbar>
       </Container>

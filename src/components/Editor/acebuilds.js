@@ -15,9 +15,7 @@ import("ace-builds/src-noconflict/theme-terminal");
 // languages
 import("ace-builds/src-noconflict/mode-python");
 import("ace-builds/src-noconflict/mode-java");
-import("ace-builds/src-noconflict/mode-javascript");
 import("ace-builds/src-noconflict/mode-c_cpp");
-import("ace-builds/src-noconflict/mode-php");
 import("ace-builds/src-noconflict/mode-ruby");
 import("ace-builds/src-noconflict/mode-r");
 import("ace-builds/src-noconflict/mode-golang");

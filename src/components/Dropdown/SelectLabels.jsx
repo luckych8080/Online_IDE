@@ -14,12 +14,12 @@ export default function SelectLabels(props) {
 
   const themeHandleChange = (event) => {
     setTheme(event.target.value);
-    console.log(theme + " in select.js");
   };
 
   React.useEffect(() => {
     props.setMode(theme);
-  }, [theme, props]);
+    props.setLang(lang);
+  }, [theme, lang, props]);
 
   return (
     <div>
@@ -29,16 +29,13 @@ export default function SelectLabels(props) {
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          // value={lang}
           value={lang}
-          label="Age"
+          label="Lang"
           onChange={langHandleChange}
         >
           <MenuItem value={"python"}>Python 3</MenuItem>
           <MenuItem value={"java"}>Java</MenuItem>
-          <MenuItem value={"javascript"}>Javascript</MenuItem>
           <MenuItem value={"c_cpp"}>C++</MenuItem>
-          <MenuItem value={"php"}>PHP</MenuItem>
           <MenuItem value={"ruby"}>Ruby</MenuItem>
           <MenuItem value={"r"}>R</MenuItem>
           <MenuItem value={"golang"}>Go Lang</MenuItem>
@@ -52,9 +49,8 @@ export default function SelectLabels(props) {
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          // value={theme}
           value={theme}
-          label="theme"
+          label="Theme"
           onChange={themeHandleChange}
         >
           <MenuItem value={"dracula"}>Dracula</MenuItem>

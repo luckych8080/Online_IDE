@@ -16,10 +16,11 @@ const theme = createTheme({
 
 function App() {
   const [mode, setMode] = useState("dracula");
+  const [lang, setLang] = useState("python");
 
   return (
     <ThemeProvider theme={theme}>
-      <ResponsiveAppBar setMode={setMode} />
+      <ResponsiveAppBar setMode={setMode} setLang={setLang} />
       <Container maxWidth="lg">
         <Grid
           container
@@ -29,7 +30,7 @@ function App() {
         >
           {/* Editor */}
           <Grid item xs={12} style={{ padding: "15px 0" }}>
-            <Editor mode={mode} />
+            <Editor mode={mode} lang={lang} />
           </Grid>
 
           {/* Input & Run button */}
