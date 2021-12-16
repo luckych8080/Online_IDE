@@ -1,9 +1,5 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Container from "@mui/material/Container";
+import { AppBar, Box, Toolbar, IconButton, Container } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -31,17 +27,24 @@ const ResponsiveAppBar = (props) => {
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
             <IconButton
-              href="https://github.com/luckych8080/Online_IDE" target="_blank" rel="noopener noreferrer"
+              href="https://github.com/luckych8080/Online_IDE"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="github"
             >
               <GitHubIcon sx={{ fontSize: 35 }} />
             </IconButton>
-            <IconButton href="https://www.linkedin.com/in/luckych8080/" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
+            <IconButton
+              href="https://www.linkedin.com/in/luckych8080/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="linkedin"
+            >
               <LinkedInIcon sx={{ fontSize: 35 }} />
             </IconButton>
           </Box>
           <Box sx={{ flexGrow: 0, m: 1 }}>
-            <SelectLabels  setMode={props.setMode} setLang={props.setLang} />
+            <SelectLabels setMode={props.setMode} setLang={props.setLang} />
           </Box>
         </Toolbar>
       </Container>

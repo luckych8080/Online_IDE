@@ -19,4 +19,7 @@ const langForEditor = (lang) => {
   }
 };
 
+
+// need to use this because ace-editor lang support and jdoodle language support is different and syntax difference
+
 export default langForEditor;
