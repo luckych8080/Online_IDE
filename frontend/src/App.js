@@ -8,9 +8,6 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Container, Grid } from "@mui/material";
 const axios = require("axios");
 
-if (process.env.NODE_ENV !== "production") {
-  require('dotenv').config();
-}
 
 const theme = createTheme({
   palette: {
@@ -40,7 +37,7 @@ function App() {
 
       await axios({
         method: "GET",
-        url: "http://localhost:5000/api",
+        url: process.env.REACT_APP_BACKEND_URL,
         params: {
           data: program,
         },
