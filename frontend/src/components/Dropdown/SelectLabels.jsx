@@ -34,11 +34,15 @@ export default function SelectLabels(props) {
           onChange={langHandleChange}
         >
           <MenuItem value={"python3"}>Python 3</MenuItem>
+          <MenuItem value={"python2"}>Python 2</MenuItem>
           <MenuItem value={"java"}>Java</MenuItem>
-          <MenuItem value={"c_cpp"}>C++</MenuItem>
+          <MenuItem value={"c"}>C</MenuItem>
+          <MenuItem value={"cpp"}>C++</MenuItem>
+          <MenuItem value={"cpp14"}>C++ 14</MenuItem>
+          <MenuItem value={"cpp17"}>C++ 17</MenuItem>
           <MenuItem value={"ruby"}>Ruby</MenuItem>
-          <MenuItem value={"r"}>R</MenuItem>
-          <MenuItem value={"golang"}>Go Lang</MenuItem>
+          <MenuItem value={"php"}>PHP</MenuItem>
+          <MenuItem value={"go"}>Go Lang</MenuItem>
           <MenuItem value={"kotlin"}>Kotlin</MenuItem>
         </Select>
       </FormControl>

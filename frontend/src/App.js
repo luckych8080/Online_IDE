@@ -18,7 +18,7 @@ const theme = createTheme({
 
 function App() {
   const [mode, setMode] = useState("dracula");
-  const [lang, setLang] = useState("python");
+  const [lang, setLang] = useState("python3");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [code, setCode] = useState("");
@@ -30,14 +30,15 @@ function App() {
     try {
       let program = {
         clientId: "7b76a48a5ef2197afda19b14cefca862",
-        clientSecret: "6dddb912bdfdd01bde8e6809d109e5b0b918a3bf39591f475155ad358e37574b",
+        clientSecret:
+          "6dddb912bdfdd01bde8e6809d109e5b0b918a3bf39591f475155ad358e37574b",
         script: code,
         stdin: input,
         language: lang,
         versionIndex: "0",
       };
 
-      setOutput("Running.......");
+      setOutput("Running...");
 
       await axios({
         method: "GET",
@@ -47,8 +48,8 @@ function App() {
         },
       })
         .then((response) => {
-          console.log({ Response: response.data.output });
           let out = response.data.output;
+          out = out.split("\n").map((line) => <div>{line}</div>);
           setOutput(out);
         })
         .catch((err) => {

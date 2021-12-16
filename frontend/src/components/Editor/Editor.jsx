@@ -6,9 +6,13 @@ import Paper from "@mui/material/Paper";
 import Beautify from "ace-builds/src-noconflict/ext-beautify";
 import "ace-builds/src-min-noconflict/ext-language_tools";
 import "./acebuilds";
+// import "./langForEditor";
+import langForEditor from "./langForEditor";
 
 // Render editor
 const Editor = (props) => {
+  const lang = langForEditor(props.lang);
+
   const OnChange = (value) => {
     props.setCode(value);
   };
@@ -16,7 +20,7 @@ const Editor = (props) => {
   return (
     <Paper elevation={3}>
       <AceEditor
-        mode={props.lang}
+        mode={lang}
         theme={props.mode}
         onChange={OnChange}
         commands={Beautify.commands}
