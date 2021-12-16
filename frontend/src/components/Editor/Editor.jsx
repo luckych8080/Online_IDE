@@ -6,15 +6,11 @@ import Paper from "@mui/material/Paper";
 import Beautify from "ace-builds/src-noconflict/ext-beautify";
 import "ace-builds/src-min-noconflict/ext-language_tools";
 import "./acebuilds";
-import { useState } from "react";
 
 // Render editor
 const Editor = (props) => {
-  const [code, setCode] = useState("");
-
-  const onChange = (value) => {
-    setCode(value);
-    props.setCode(code);
+  const OnChange = (value) => {
+    props.setCode(value);
   };
 
   return (
@@ -22,7 +18,7 @@ const Editor = (props) => {
       <AceEditor
         mode={props.lang}
         theme={props.mode}
-        onChange={onChange}
+        onChange={OnChange}
         commands={Beautify.commands}
         name="ace-editor"
         editorProps={{ $blockScrolling: true }}

@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Editor from "./components/Editor/Editor";
 import Output from "./components/Output/Output";
 import ResponsiveAppBar from "./components/MainNavigation/ResponsiveAppBar";
@@ -20,11 +20,12 @@ function App() {
   const [output, setOutput] = useState("");
   const [code, setCode] = useState("");
 
-  const onClickHandler = useCallback(() => {
+  const onClickHandler = () => {
     // api send data InputRef
     console.log(input);
     console.log(code);
-  }, [input, code]);
+    setOutput("")
+  };
 
   return (
     <ThemeProvider theme={theme}>
