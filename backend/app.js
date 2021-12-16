@@ -6,7 +6,6 @@ const HttpError = require("./http-error");
 const { response } = require("express");
 
 const app = express();
-const port = 5000;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -56,6 +55,8 @@ app.use((req, res, next) => {
   const error = new HttpError("Could not found this route!", 404);
   throw error;
 });
+
+const port = process.env.PORT || 5000;
 
 app.use((error, req, res, next) => {
   if (res.headerSent) {
