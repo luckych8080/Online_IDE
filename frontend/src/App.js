@@ -8,7 +8,9 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Container, Grid } from "@mui/material";
 const axios = require("axios");
 
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+}
 
 const theme = createTheme({
   palette: {
@@ -23,15 +25,11 @@ function App() {
   const [output, setOutput] = useState("");
   const [code, setCode] = useState("");
 
-  console.log(process.env.JDOODLE_CLIENT_ID);
-  console.log(process.env.JDOODLE_CLIENT_SECRET);
-
   const onClickHandler = async () => {
     try {
       let program = {
-        clientId: "7b76a48a5ef2197afda19b14cefca862",
-        clientSecret:
-          "6dddb912bdfdd01bde8e6809d109e5b0b918a3bf39591f475155ad358e37574b",
+        clientId: process.env.REACT_APP_JDOODLE_CLIENT_ID,
+        clientSecret: process.env.REACT_APP_JDOODLE_CLIENT_SECRET,
         script: code,
         stdin: input,
         language: lang,
@@ -49,7 +47,7 @@ function App() {
       })
         .then((response) => {
           let out = response.data.output;
-          out = out.split("\n").map((line) => <div>{line}</div>);
+          out = out.split("\n").map((line) => <p key={line}>{line}</p>);
           setOutput(out);
         })
         .catch((err) => {
