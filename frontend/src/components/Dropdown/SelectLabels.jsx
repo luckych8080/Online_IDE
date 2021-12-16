@@ -5,7 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 export default function SelectLabels(props) {
-  const [lang, setLang] = React.useState("python");
+  const [lang, setLang] = React.useState("python3");
   const [theme, setTheme] = React.useState("dracula");
 
   const langHandleChange = (event) => {
@@ -33,7 +33,7 @@ export default function SelectLabels(props) {
           label="Lang"
           onChange={langHandleChange}
         >
-          <MenuItem value={"python"}>Python 3</MenuItem>
+          <MenuItem value={"python3"}>Python 3</MenuItem>
           <MenuItem value={"java"}>Java</MenuItem>
           <MenuItem value={"c_cpp"}>C++</MenuItem>
           <MenuItem value={"ruby"}>Ruby</MenuItem>

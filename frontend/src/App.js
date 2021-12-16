@@ -8,6 +8,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Container, Grid } from "@mui/material";
 const axios = require("axios");
 
+require("dotenv").config();
+
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -21,35 +23,37 @@ function App() {
   const [output, setOutput] = useState("");
   const [code, setCode] = useState("");
 
+  console.log(process.env.JDOODLE_CLIENT_ID);
+  console.log(process.env.JDOODLE_CLIENT_SECRET);
+
   const onClickHandler = async () => {
     try {
-      const program = {
-        clientId: process.env.JDOODLE_CLIENT_ID,
-        clientSecret: process.env.JDOODLE_CLIENT_SECRET,
+      let program = {
+        clientId: "7b76a48a5ef2197afda19b14cefca862",
+        clientSecret: "6dddb912bdfdd01bde8e6809d109e5b0b918a3bf39591f475155ad358e37574b",
         script: code,
         stdin: input,
         language: lang,
         versionIndex: "0",
       };
 
-      setOutput("Running");
+      setOutput("Running.......");
 
       await axios({
         method: "GET",
-        url: "http://localhost:5000/api/",
-        body: {
+        url: "http://localhost:5000/api",
+        params: {
           data: program,
         },
-      }).then((response) => {
-        console.log({ "Response data": response });
-        // console.log({ "Response body": response.body });
-
-        // let out = response.body.output;
-
-        // console.log("response "  + out)
-
-        // setOutput(out);
-      });
+      })
+        .then((response) => {
+          console.log({ Response: response.data.output });
+          let out = response.data.output;
+          setOutput(out);
+        })
+        .catch((err) => {
+          console.log("Error in axios request: ", err);
+        });
     } catch (err) {
       console.log("Error occured in onClickHandler function in App.js: ", err);
     }

@@ -1,8 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
-const cors = require('cors')
+const cors = require("cors");
 const HttpError = require("./http-error");
+const { response } = require("express");
 
 const app = express();
 const port = 5000;
@@ -26,7 +27,7 @@ app.get("/", (req, res) => {
 
 app.get("/api", async (req, res, next) => {
   let url = "https://api.jdoodle.com/v1/execute";
-  let program = (req.body.data);
+  let program = JSON.parse(req.query.data);
   let config = {
     headers: {
       "Content-Type": "application/json",
@@ -34,7 +35,6 @@ app.get("/api", async (req, res, next) => {
   };
 
   let output;
-
   try {
     await axios
       .post(url, program, config)
