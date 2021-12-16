@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const axios = require("axios");
 const cors = require("cors");
 const HttpError = require("./http-error");
-const { response } = require("express");
 
 const app = express();
 

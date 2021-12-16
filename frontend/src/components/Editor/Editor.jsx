@@ -9,6 +9,9 @@ import "./acebuilds";
 
 import langForEditor from "./langForEditor";
 
+import 'ace-builds';
+import 'ace-builds/webpack-resolver';
+
 const Editor = (props) => {
   const lang = langForEditor(props.lang);
 

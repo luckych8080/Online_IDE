@@ -5,9 +5,8 @@ import ResponsiveAppBar from "./components/MainNavigation/ResponsiveAppBar";
 import Input from "./components/Input/Input";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, CircularProgress } from "@mui/material";
 const axios = require("axios");
-
 
 const theme = createTheme({
   palette: {
@@ -22,6 +21,8 @@ function App() {
   const [output, setOutput] = useState("");
   const [code, setCode] = useState("");
 
+  const loading = <CircularProgress color="success" />;
+
   const onClickHandler = async () => {
     try {
       let program = {
@@ -33,7 +34,7 @@ function App() {
         versionIndex: "0",
       };
 
-      setOutput("Running...");
+      setOutput(loading);
 
       await axios({
         method: "GET",
@@ -52,6 +53,7 @@ function App() {
         });
     } catch (err) {
       console.log("Error occured in onClickHandler function in App.js: ", err);
+      setOutput("");
     }
   };
 
