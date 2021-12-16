@@ -1,7 +1,7 @@
 const express = require("express");
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 const axios = require("axios");
-
+const cors = require('cors')
 const HttpError = require("./http-error");
 
 const app = express();
@@ -11,10 +11,44 @@ const port = 5000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   return res.json({ status: "working!" });
+});
+
+app.get("/api", async (req, res, next) => {
+  let url = "https://api.jdoodle.com/v1/execute";
+  let program = (req.body.data);
+  let config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  let output;
+
+  try {
+    await axios
+      .post(url, program, config)
+      .then((response) => {
+        output = response.data.output;
+      })
+      .catch((err) => {
+        console.log("error in app.js axios ", err);
+      });
+  } catch (err) {
+    console.log("Error catch in app.js ", err);
+  }
+
+  res.json({ output });
 });
 
 // error handling in unsupported route

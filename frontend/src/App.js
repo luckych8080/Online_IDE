@@ -6,6 +6,7 @@ import Input from "./components/Input/Input";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Container, Grid } from "@mui/material";
+const axios = require("axios");
 
 const theme = createTheme({
   palette: {
@@ -20,11 +21,38 @@ function App() {
   const [output, setOutput] = useState("");
   const [code, setCode] = useState("");
 
-  const onClickHandler = () => {
-    // api send data InputRef
-    console.log(input);
-    console.log(code);
-    setOutput("")
+  const onClickHandler = async () => {
+    try {
+      const program = {
+        clientId: process.env.JDOODLE_CLIENT_ID,
+        clientSecret: process.env.JDOODLE_CLIENT_SECRET,
+        script: code,
+        stdin: input,
+        language: lang,
+        versionIndex: "0",
+      };
+
+      setOutput("Running");
+
+      await axios({
+        method: "GET",
+        url: "http://localhost:5000/api/",
+        body: {
+          data: program,
+        },
+      }).then((response) => {
+        console.log({ "Response data": response });
+        // console.log({ "Response body": response.body });
+
+        // let out = response.body.output;
+
+        // console.log("response "  + out)
+
+        // setOutput(out);
+      });
+    } catch (err) {
+      console.log("Error occured in onClickHandler function in App.js: ", err);
+    }
   };
 
   return (
