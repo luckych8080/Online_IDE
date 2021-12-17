@@ -10,10 +10,10 @@
 /coverage
 
 # hosting
-# /.firebase
+/.firebase
 
-# .firebaserc
-# firebase-debug.log
+.firebaserc
+firebase-debug.log
 
 # production
 /build
