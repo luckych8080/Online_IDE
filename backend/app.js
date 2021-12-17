@@ -9,7 +9,7 @@ const app = express();
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// parse application/json
+// parse application/json (luckych8080)
 app.use(bodyParser.json());
 
 app.use(

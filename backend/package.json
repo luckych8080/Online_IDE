@@ -8,7 +8,7 @@
     "start": "node app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "luckych8080",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
