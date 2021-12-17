@@ -3,7 +3,6 @@ import Editor from "./components/Editor/Editor";
 import Output from "./components/Output/Output";
 import ResponsiveAppBar from "./components/MainNavigation/ResponsiveAppBar";
 import Input from "./components/Input/Input";
-
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Container, Grid, CircularProgress } from "@mui/material";
 const axios = require("axios");
