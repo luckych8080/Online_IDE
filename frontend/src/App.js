@@ -26,7 +26,8 @@ function App() {
     try {
       let program = {
         clientId: process.env.REACT_APP_JDOODLE_CLIENT_ID,
-        clientSecret: process.env.REACT_APP_JDOODLE_CLIENT_SECRET,
+        clientSecret:
+        process.env.REACT_APP_JDOODLE_CLIENT_SECRET,
         script: code,
         stdin: input,
         language: lang,
@@ -48,6 +49,7 @@ function App() {
           setOutput(out);
         })
         .catch((err) => {
+          setOutput("");
           console.log("Error in axios request: ", err);
         });
     } catch (err) {

@@ -34,7 +34,7 @@ const Input = (props) => {
               aria-label="minimum height"
               minRows={3}
               ref={InputRef}
-              onChange={inputHandler}
+              onBlur={inputHandler}
               style={{
                 width: "99%",
                 maxHeight: "100%",

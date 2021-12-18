@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AceEditor from "react-ace";
 import Paper from "@mui/material/Paper";
 import "ace-builds";
@@ -9,10 +9,15 @@ import "./acebuilds";
 import langForEditor from "./langForEditor";
 
 const Editor = (props) => {
+  const [code, setCode] = useState();
   const lang = langForEditor(props.lang);
 
-  const OnChange = (value) => {
-    props.setCode(value);
+  const OnChangeHandler = (value) => {
+    setCode(value);
+  };
+
+  const OnBlurHandler = () => {
+    props.setCode(code);
   };
 
   return (
@@ -20,7 +25,8 @@ const Editor = (props) => {
       <AceEditor
         mode={lang}
         theme={props.mode}
-        onChange={OnChange}
+        onChange={OnChangeHandler}
+        onBlur={OnBlurHandler}
         commands={Beautify.commands}
         name="ace-editor"
         editorProps={{ $blockScrolling: true }}
