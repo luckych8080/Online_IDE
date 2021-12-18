@@ -23,8 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", async (req, res, next) => {
-  let url = "https://api.jdoodle.com/v1/execute";
-  let program = JSON.parse(req.query.data);
+  let url = process.env.URL;
   let config = {
     headers: {
       "Content-Type": "application/json",
@@ -33,6 +32,14 @@ app.get("/api", async (req, res, next) => {
 
   let output;
   try {
+    let code = JSON.parse(req.query.data);
+    let program = {
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      ...code,
+    };
+    console.log(program);
+
     await axios
       .post(url, program, config)
       .then((response) => {

@@ -25,9 +25,6 @@ function App() {
   const onClickHandler = async () => {
     try {
       let program = {
-        clientId: process.env.REACT_APP_JDOODLE_CLIENT_ID,
-        clientSecret:
-        process.env.REACT_APP_JDOODLE_CLIENT_SECRET,
         script: code,
         stdin: input,
         language: lang,
